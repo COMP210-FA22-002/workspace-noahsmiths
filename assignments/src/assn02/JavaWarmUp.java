@@ -43,29 +43,26 @@ public class JavaWarmUp {
                 highestSale = new Sale(date, time, category, price, quantity, rating, duration);
             }
 
+            int index;
             switch(category) {
                 case "book":
-                    categoryPrices[0] += price * quantity;
-                    categoryRatings[0] += rating;
-                    categoryDurations[0] += duration;
-                    categoryQuantities[0] += quantity;
-                    categoryAmounts[0] += 1;
+                    index = 0;
                     break;
                 case "jewelry":
-                    categoryPrices[1] += price * quantity;
-                    categoryRatings[1] += rating;
-                    categoryDurations[1] += duration;
-                    categoryQuantities[1] += quantity;
-                    categoryAmounts[1] += 1;
+                    index = 1;
                     break;
                 case "phone":
-                    categoryPrices[2] += price * quantity;
-                    categoryRatings[2] += rating;
-                    categoryDurations[2] += duration;
-                    categoryQuantities[2] += quantity;
-                    categoryAmounts[2] += 1;
+                    index = 2;
                     break;
+                default:
+                    throw new Error("Invalid category");
             }
+
+            categoryPrices[index] += price * quantity;
+            categoryRatings[index] += rating;
+            categoryDurations[index] += duration;
+            categoryQuantities[index] += quantity;
+            categoryAmounts[index] += 1;
         }
 
         System.out.printf("Highest per unit sale:%n\tWhen: %s %s%n\tCategory: %s%n\tPrice: %.2f%n\tRating: %.1f%n", highestSale._date, highestSale._time, highestSale._category, highestSale._price, highestSale._rating);
