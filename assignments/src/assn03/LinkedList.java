@@ -29,10 +29,16 @@ public class LinkedList<T> {
         if (this.size() != list2.size()) {
             return false;
         } else {
+            Node<T> mainListNode = this.getHead();
+            Node<T> secondListNode = list2.getHead();
+
             for (int i = 0; i < this.size(); i++) {
-                if (this.get(i) != list2.get(i)) {
+                if (mainListNode.getValue() != secondListNode.getValue()) {
                     return false;
                 }
+
+                mainListNode = mainListNode.getNext();
+                secondListNode = secondListNode.getNext();
             }
 
             return true;
