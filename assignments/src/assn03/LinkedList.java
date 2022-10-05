@@ -1,7 +1,5 @@
 package assn03;
 
-import java.util.ArrayList;
-
 public class LinkedList<T> {
     private Node<T> head = null;
     private Node<T> tail = null;
@@ -97,6 +95,8 @@ public class LinkedList<T> {
             currentNode.setNext(temp);
             currentNode = temp;
         }
+
+        this.size *= factor;
     }
 
 
@@ -159,6 +159,8 @@ public class LinkedList<T> {
             mainListNode.getNext().setNext(temp);
             mainListNode = temp;
         }
+
+        this.size += list2.size();
     }
 
 
