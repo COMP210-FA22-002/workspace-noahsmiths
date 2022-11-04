@@ -12,7 +12,20 @@ public class SimpleEmergencyRoom {
 
     // TODO: dequeue
     public Patient dequeue() {
-    	return null;
+        int lowestPriorityIndex = 0;
+        Patient lowestPriority = patients.get(lowestPriorityIndex);
+
+        for (int i = 1; i < patients.size(); i++) {
+            Patient currentPatient = patients.get(i);
+
+            if (currentPatient.getPriority().compareTo(lowestPriority.getPriority()) < 0) {
+                lowestPriorityIndex = i;
+                lowestPriority = currentPatient;
+            }
+
+        }
+
+    	return this.patients.remove(lowestPriorityIndex);
     }
 
     public <V, P> void addPatient(V value, P priority) {
