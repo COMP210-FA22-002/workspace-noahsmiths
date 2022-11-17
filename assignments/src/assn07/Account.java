@@ -5,9 +5,9 @@ public class Account <K,V> {
     private V _password;
     private Account _next;
 
-    public Account(K website, V password) {
-        _website = website;
-        _password = password;
+    public Account(K key, V value) {
+        _website = key;
+        _password = value;
         _next = null;
     }
 
